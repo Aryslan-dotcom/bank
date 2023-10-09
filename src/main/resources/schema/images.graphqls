@@ -1,0 +1,8 @@
+type Images{
+    id:ID,
+    link:String
+}
+input ImagesInput{
+    id:ID,
+    link:String
+}

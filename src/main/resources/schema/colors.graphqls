@@ -1,0 +1,7 @@
+type Colors{
+    id:ID!,
+    name:String!
+}
+input ColorsInput{
+    name:String!
+}

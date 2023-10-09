@@ -1,0 +1,11 @@
+type Sellers{
+    id:ID!,
+    name:String!,
+    number:String!,
+    itemPhone:ItemPhone!
+}
+input SellersInput{
+    name:String!,
+    number:String!,
+    itemPhone:ItemPhoneInput!
+}

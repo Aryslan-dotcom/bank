@@ -1,0 +1,51 @@
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Kaspi.kz</title>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" th:href="@{'/css/myStyle.css'}">
+    <link rel="stylesheet" type="text/css" th:href="@{'/css/mycss.css'}">
+    <link rel="shortcut icon" href="/images/4.jpg">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#"style="margin-left: 140px"><img th:src="@{'https://upload.wikimedia.org/wikipedia/ru/a/aa/Logo_of_Kaspi_bank.png'}" style="height: 35px;width: 35px"><strong style="font-size: x-large">Kaspi.kz</strong></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse col-4" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/bank/home"style="color: grey">Главная страница</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/bank/profile"style="color: grey">Профиль</a>
+                </li>
+                <li class="nav-item">
+                    <a th:if="${!#authorization.expression('hasRole(''ROLE_USER'')')}"class="nav-link active" aria-current="page" href="/bank/register"style="margin-left: 800px;color: grey" >Регистрация</a>
+                </li>
+                <li class="nav-item">
+                    <a th:if="${!#authorization.expression('hasRole(''ROLE_USER'')')}"class="nav-link" href="/bank/login"style="color: grey">Войти</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+</div>
+<div class="container-fluid" layout:fragment="home"></div>
+<div class="container-fluid" layout:fragment="login"></div>
+<div class="container-fluid" layout:fragment="phone"></div>
+<div class="container-fluid" layout:fragment="phone_details"></div>
+<div class="container-fluid" layout:fragment="add_phone"></div>
+<div class="container-fluid" layout:fragment="add_seller"></div>
+<div class="container-fluid" layout:fragment="add_category"></div>
+<div class="container-fluid" layout:fragment="profile"></div>
+<div class="container-fluid" layout:fragment="admin_panel"></div>
+<div class="container-fluid" layout:fragment="403"></div>
+<div class="container-fluid" layout:fragment="register"></div>
+<div class="container-fluid" layout:fragment="change_password"></div>
+<div class="container-fluid" layout:fragment="messenger"></div>
+<script type="text/javascript" src="/js/bootstrap.bundle.js"></script>
+</body>
+</html>

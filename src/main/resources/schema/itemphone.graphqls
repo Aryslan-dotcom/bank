@@ -1,0 +1,25 @@
+type ItemPhone{
+    id:ID!,
+    name:String!,
+    description_phone:String!,
+    price:String!,
+    memoryPhones:String!,
+    brandPhones:String!,
+    characteristicPhones:String!
+    imagesList:[Images]!,
+    sellers:[Sellers]!,
+    colors:[Colors]!,
+    commentaryPhones:[CommentaryPhones]!,
+}
+input ItemPhoneInput{
+    name:String!,
+    description_phone:String!,
+    price:String!,
+    memoryPhones:String!,
+    brandPhones:String!,
+    characteristicPhones:String!
+    imagesList:[ImagesInput]!,
+    sellers:[SellersInput]!,
+    colors:[ColorsInput]!,
+    commentaryPhones:[CommentaryPhonesInput]!,
+}

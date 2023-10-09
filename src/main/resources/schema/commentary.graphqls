@@ -1,0 +1,13 @@
+type CommentaryPhones{
+    id:ID!,
+    author:String!,
+    commentary:String!,
+    good:String!,
+    bad:String!
+}
+input CommentaryPhonesInput{
+    author:String!,
+    commentary:String!,
+    good:String!,
+    bad:String!
+}

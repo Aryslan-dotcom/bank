@@ -1,0 +1,11 @@
+type Category{
+    id:ID,
+    name:String,
+    images:[Images],
+    link:String
+}
+input CategoryInput{
+    name:String!,
+    images:[ImagesInput]!,
+    link:String!
+}

@@ -1,0 +1,29 @@
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layout/main.html">
+<div class="container-fluid" layout:fragment="messenger">
+    <div class="col-6 mx-auto">
+        <form th:action="@{'/bank/messager'}" method="post">
+            <div class="form-group">
+                <label>toEmailAddress</label>
+                <input class="form-control" type="email" name="toEmailAddress">
+            </div>
+            <div class="form-group">
+                <label>fromEmailAddress</label>
+                <input class="form-control" type="email" name="fromEmailAddress">
+            </div>
+            <div class="form-group">
+                <label>bodyText</label>
+                <input class="form-control" type="text" name="bodyText">
+            </div>
+            <div class="form-group">
+                <label>subject</label>
+                <input class="form-control" type="text" name="subject">
+            </div>
+            <div class="form-group ">
+                <button class="btn btn-success mt-2">
+                    Submit
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+</html>
