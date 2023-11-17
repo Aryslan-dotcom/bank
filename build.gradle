@@ -1,7 +1,7 @@
 plugins {
 	id 'java'
-	id 'org.springframework.boot' version '3.1.1'
-	id 'io.spring.dependency-management' version '1.1.0'
+	id 'org.springframework.boot' version '3.1.5'
+	id 'io.spring.dependency-management' version '1.1.3'
 	id "com.netflix.dgs.codegen" version "6.0.2"
 }
 
@@ -12,7 +12,10 @@ java {
 	sourceCompatibility = '17'
 }
 
+// Configuration settings for the Java code generation task based on GraphQl schema
 generateJava {
+	schemaPaths = ["${projectDir}/src/main/resources/schema"] // List of directories containing schema files
+	packageName = 'Kaspi.bank' // The package name to use to generate sources
 	typeMapping = [
 	        "Float" : "java.lang.Float"
 	]
@@ -29,29 +32,35 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'org.springframework.boot:spring-boot-starter-security'
-	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+
+	//spring-core
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation group: 'nz.net.ultraq.thymeleaf', name: 'thymeleaf-layout-dialect', version: '3.1.0'
-	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
-	compileOnly 'org.projectlombok:lombok'
-	runtimeOnly 'org.postgresql:postgresql'
-	annotationProcessor 'org.projectlombok:lombok'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testImplementation 'org.springframework.security:spring-security-test'
-	implementation 'org.liquibase:liquibase-core:4.23.2'
-	implementation 'org.mapstruct:mapstruct:1.5.5.Final'
-	annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.5.Final'
-	//graphql
-	implementation 'org.springframework.boot:spring-boot-starter-graphql'
-	testImplementation 'org.springframework.graphql:spring-graphql-test'
-	implementation 'com.graphql-java-kickstart:graphql-java-tools:13.1.0'
+
 	//netflix dgs (graphql-engine)
 	implementation(platform("com.netflix.graphql.dgs:graphql-dgs-platform-dependencies:7.5.3"))
 	implementation "com.netflix.graphql.dgs:graphql-dgs-spring-boot-starter"
 	implementation "com.netflix.graphql.dgs:graphql-dgs-extended-scalars"
 	implementation 'com.netflix.graphql.dgs:graphql-dgs-extended-validation'
+
+	//database
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.postgresql:postgresql'
+	implementation 'org.liquibase:liquibase-core'
+
+	//lombok
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+
+	//security
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+
+	//test
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.security:spring-security-test'
+
+	//mapper
+	implementation 'org.mapstruct:mapstruct:1.5.5.Final'
+	annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.5.Final'
 
 }
 
