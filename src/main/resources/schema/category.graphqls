@@ -1,9 +1,30 @@
+# ===============================================================
+# =                          QUERY & MUTATION                   =
+# ===============================================================
+
+extend type Query {
+    allCategories:[Category]!
+}
+
+extend type Mutation {
+    addCategory(categoryInput:CategoryInput!):Category
+}
+
+# ===============================================================
+# =                           TYPES                             =
+# ===============================================================
+
 type Category{
     id:ID,
     name:String,
     images:[Images],
     link:String
 }
+
+# ===============================================================
+# =                          INPUTS                             =
+# ===============================================================
+
 input CategoryInput{
     name:String!,
     images:[ImagesInput]!,

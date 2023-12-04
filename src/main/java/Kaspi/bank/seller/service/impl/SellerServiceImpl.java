@@ -1,6 +1,7 @@
-package Kaspi.bank.seller.service;
+package Kaspi.bank.seller.service.impl;
 import Kaspi.bank.seller.entity.Seller;
 import Kaspi.bank.seller.repository.SellersRepositories;
+import Kaspi.bank.seller.service.SellerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

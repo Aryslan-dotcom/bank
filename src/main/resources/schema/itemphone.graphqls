@@ -1,3 +1,19 @@
+# ===============================================================
+# =                          QUERY & MUTATION                   =
+# ===============================================================
+
+extend type Query {
+    allItemPhone:[ItemPhone]!
+}
+
+extend type Mutation {
+
+}
+
+# ===============================================================
+# =                           TYPES                             =
+# ===============================================================
+
 type ItemPhone{
     id:ID!,
     name:String!,
@@ -11,6 +27,11 @@ type ItemPhone{
     colors:[Colors]!,
     commentaryPhones:[CommentaryPhones]!,
 }
+
+# ===============================================================
+# =                          INPUTS                             =
+# ===============================================================
+
 input ItemPhoneInput{
     name:String!,
     description_phone:String!,

@@ -17,7 +17,8 @@ generateJava {
 	schemaPaths = ["${projectDir}/src/main/resources/schema"] // List of directories containing schema files
 	packageName = 'Kaspi.bank' // The package name to use to generate sources
 	typeMapping = [
-	        "Float" : "java.lang.Float"
+	        "Float" : "java.lang.Float",
+			"BigDecimal" : "java.math.BigDecimal"
 	]
 }
 

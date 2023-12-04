@@ -1,5 +1,0 @@
-type Query{
-    allItemPhone:[ItemPhone]!
-    allCategories:[Category]!
-    allImages:[Images]!
-}

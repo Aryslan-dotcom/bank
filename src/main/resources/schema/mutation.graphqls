@@ -1,5 +1,0 @@
-type Mutation{
-    addCategory(categoryInput:CategoryInput!):Category
-    addImages(imagesInput:ImagesInput!):Images
-    addColor(colorsInput:ColorsInput!):Colors
-}

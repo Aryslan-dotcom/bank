@@ -1,11 +1,11 @@
-package Kaspi.bank.phone.service;
+package Kaspi.bank.phone.service.impl;
 
 import Kaspi.bank.color.mapper.ColorMapper;
 import Kaspi.bank.commentary.mapper.CommentaryMapper;
 import Kaspi.bank.image.mapper.ImagesMapper;
 import Kaspi.bank.phone.entities.ItemPhone;
+import Kaspi.bank.phone.service.ItemPhoneService;
 import Kaspi.bank.price.entity.Price;
-//import Kaspi.bank.phone.mapper.ItemPhoneMapper;
 import Kaspi.bank.phone.mapper.ItemPhoneMapper;
 import Kaspi.bank.phone.repositories.ItemPhoneRepository;
 import Kaspi.bank.seller.mapper.SellerMapper;
@@ -18,6 +18,7 @@ import java.util.List;
 
 @Service
 public class ItemPhoneServiceImpl implements ItemPhoneService {
+
     @Autowired
     private ItemPhoneRepository itemPhoneRepository;
     @Autowired
@@ -47,6 +48,7 @@ public class ItemPhoneServiceImpl implements ItemPhoneService {
                 .build();
         return itemPhoneMapper.mapToDto(itemPhoneRepository.save(itemPhone));
     }
+
     @Override
     public List<ItemPhoneInput> getAllItemPhone() {
         return itemPhoneMapper.mapToDtoItemPhoneList(itemPhoneRepository.findAll());
@@ -59,15 +61,17 @@ public class ItemPhoneServiceImpl implements ItemPhoneService {
 
     @Override
     public List<ItemPhoneInput> getAllItemPhoneWithPriceName(String minStr, String maxStr, String name) {
-
         Integer minInt = minStr.isEmpty() ? null : Integer.parseInt(minStr);
         Integer maxInt = maxStr.isEmpty() ? null : Integer.parseInt(maxStr);
+
         Price priceMin = Price.builder()
                 .price(minInt)
                 .build();
+
         Price priceMax = Price.builder()
                 .price(maxInt)
                 .build();
+
         if (name.isEmpty()) {
             if (minInt != null && maxInt != null) {
                 return itemPhoneMapper.mapToDtoItemPhoneList(itemPhoneRepository.findAllByPriceBetween(priceMin,priceMax));
@@ -88,4 +92,5 @@ public class ItemPhoneServiceImpl implements ItemPhoneService {
             return itemPhoneMapper.mapToDtoItemPhoneList(itemPhoneRepository.findAllByNameContainsIgnoreCaseAndPriceBetween(name,priceMin,priceMax));
         }
     }
+
 }
